@@ -44,7 +44,9 @@ Take a look...
 
 Any extra metadata within the `json_files` object will be passed through to the files it generates as `data.`
 
-The `data` object can also be renamed by passing `rename_data_to` in the front matter:
+### Rename `data` object
+
+The `data` object can be renamed by passing `rename_data_to` in the front matter:
 ```md
 ---
 name: My Posts
@@ -54,15 +56,15 @@ json_files:
 ---
 ```
 
-### Passing data directly into the page
+### Pass data directly (unwrapped) into the page
 
-By default JSON data is wrapped in a `data` object in the page, but sometimes we want to pass it into the page unwrapped as if we'd written it in front matter (eg. it might be handy to pass `tags` for use by other plugins).
+By default JSON data is wrapped in a `data` object in the page, but sometimes we want to pass it directly as if we'd written it in front matter (eg. it might be handy to pass `tags` for use by other plugins).
 
-This can be achieved by using `passhrough`, an array of objects each containing:
-- the key of the object we wish to pass directly (`from`)
-- the name we want to use in the page (`to`)
+This can be achieved by using `passthrough`, an array of objects each containing:
+- the key of an object we wish to pass directly (`from`)
+- what we want to call it in the page (`to`)
 
-So the following example will pass `tags` and retain the name. It will also pass `date` into the page as `publishedDate`: 
+So the following example will pass `tags` directly into the page. It will also pass `date` into the page, renamed to `publishedDate`: 
 ```md
 ---
 name: My Posts
